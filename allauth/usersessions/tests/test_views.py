@@ -5,8 +5,8 @@ from allauth.usersessions.models import UserSession
 
 
 def test_overall_flow(user, user_password):
-    firefox = Client(headers={"user-agent": "Mozilla Firefox"})
-    nyxt = Client(headers={"user-agent": "Nyxt"})
+    firefox = Client(HTTP_USER_AGENT="Mozilla Firefox")
+    nyxt = Client(HTTP_USER_AGENT="Nyxt")
     for client in [firefox, nyxt]:
         resp = client.post(
             reverse("account_login"),
